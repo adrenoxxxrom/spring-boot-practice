@@ -28,13 +28,12 @@ public class EmployeeService {
         return employeeDtoMapper.convertEmployeeToDto(employee);
     }
 
-    public Employee updateEmployee(Integer id, EmployeeDto employeeDto) {
+    public void updateEmployee(Integer id, EmployeeDto employeeDto) {
         Employee employee = employeeDtoMapper.convertFromEmployeeDto(employeeDto);
-        return employeeDao.updateEmployee(id, employee);
+        employeeDao.updateEmployee(id, employee);
     }
 
     public void deleteEmployee(Integer id) {
         employeeDao.deleteEmployee(id);
-
     }
 }

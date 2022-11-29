@@ -18,15 +18,17 @@ public class EmployeeDao {
     }
 
     public Employee getEmployee(Integer id) {
+        if (!employeeDaoMap.containsKey(id)) {
+            return null;
+        }
         return employeeDaoMap.get(id);
     }
 
-    public Employee updateEmployee(Integer id, Employee emp) {
+    public void updateEmployee(Integer id, Employee emp) {
         Employee employee = employeeDaoMap.get(id);
-        employee.setName(employee.getName());
-        employee.setAge(employee.getAge());
-        employee.setSalary(employee.getSalary());
-        return employee;
+        employee.setName(emp.getName());
+        employee.setAge(emp.getAge());
+        employee.setSalary(emp.getSalary());
     }
 
     public void deleteEmployee(Integer id) {
